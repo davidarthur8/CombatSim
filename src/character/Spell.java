@@ -3,11 +3,22 @@ package character;
 public class Spell {
 	private String spellName;
 	private String spellDesc;
-	private float spellCost;
+	private int spellCost;
 	private int spellDamage;
 
 	public Spell(String spellName) {
-
+		this.spellName = spellName;
+	}
+	
+	public Spell() {
+		
+	}
+	
+	public Spell(String spellName, String spellDesc, int spellCost, int spellDamage) {
+		this.spellName = spellName;
+		this.spellDesc = spellDesc;
+		this.spellCost = spellCost;
+		this.spellDamage = spellDamage;
 	}
 
 	public String getSpellName() {
@@ -30,7 +41,7 @@ public class Spell {
 		return spellCost;
 	}
 
-	public void setSpellCost(float spellCost) {
+	public void setSpellCost(int spellCost) {
 		this.spellCost = spellCost;
 	}
 

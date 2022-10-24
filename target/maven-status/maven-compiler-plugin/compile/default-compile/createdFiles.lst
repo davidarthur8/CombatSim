@@ -1,0 +1,6 @@
+character\Character.class
+character\Spell.class
+character\Monster.class
+character\Condition.class
+character\Item.class
+combatSim\CombatSim.class

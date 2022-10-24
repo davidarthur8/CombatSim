@@ -14,8 +14,9 @@ public class Character {
 	private int level;
 	private int proficiency;
 	private int maxHp;
+	private int currentHp;
 	private int xp;
-	private int initiative; 
+	private int initiative;
 	private int[] savingThrows;
 	private int[] passive;
 	private ArrayList<Item> inventory;
@@ -24,7 +25,7 @@ public class Character {
 	private ArrayList<String> skills;
 	private ArrayList<String> languages;
 	private ArrayList<String> proficiencies;
-	private ArrayList<Spell> spells;
+	private ArrayList<Spell> spells = new ArrayList<Spell>();
 	private ArrayList<String> attacks;
 	private ArrayList<String> defence;
 	private ArrayList<Condition> conditions;
@@ -80,6 +81,14 @@ public class Character {
 
 	public void setCharisma(int charisma) {
 		this.charisma = charisma;
+	}
+
+	public int getCurrentHp() {
+		return currentHp;
+	}
+
+	public void setCurrentHp(int currentHp) {
+		this.currentHp = currentHp;
 	}
 
 	public int getConstitution() {
@@ -191,11 +200,14 @@ public class Character {
 	}
 
 	public ArrayList<Spell> getSpells() {
-		return spells;
+		return this.spells;
 	}
 
 	public void setSpells(ArrayList<Spell> spells) {
 		this.spells = spells;
+	}
+	public void addSpells(Spell spell) {
+		this.spells.add(spell);
 	}
 
 	public ArrayList<String> getAttacks() {
@@ -237,15 +249,15 @@ public class Character {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	
+
 	public int getInitiative() {
 		return initiative;
 	}
 
-	public void setInitiative(int dexMod) { 
-		this.initiative = (rollDice(20)+dexMod);
+	public void setInitiative(int dexMod) {
+		this.initiative = (rollDice(20) + dexMod);
 	}
-	
+
 	public Character() {
 
 	}
@@ -405,8 +417,8 @@ public class Character {
 	@Override
 	public String toString() {
 		return (this.name + " the " + this.chosenClass + " has " + this.intelligence + " intelligence."
-				+ "\nproficiency modifier is " + this.proficiency + "\nlevel is " + this.level + "\nexperience points are " + this.xp
-				+ "\ninitiative is " + this.initiative);
+				+ "\nproficiency modifier is " + this.proficiency + "\nlevel is " + this.level
+				+ "\nexperience points are " + this.xp + "\ninitiative is " + this.initiative);
 	}
 
 	public void checkXp(int xp) {
@@ -455,33 +467,47 @@ public class Character {
 
 	public int rollDice(int diceNumber) {
 		int total;
-		switch(diceNumber) {
+		switch (diceNumber) {
 		case 4:
-			total = (int)(Math.random()*4+1);
+			total = (int) (Math.random() * 4 + 1);
 			break;
 		case 6:
-			total = (int)(Math.random()*6+1);
+			total = (int) (Math.random() * 6 + 1);
 			break;
 		case 8:
-			total = (int)(Math.random()*8+1);
+			total = (int) (Math.random() * 8 + 1);
 			break;
 		case 10:
-			total = (int)(Math.random()*10+1);
+			total = (int) (Math.random() * 10 + 1);
 			break;
 		case 12:
-			total = (int)(Math.random()*12+1);
+			total = (int) (Math.random() * 12 + 1);
 			break;
 		case 20:
-			total = (int)(Math.random()*20+1);
+			total = (int) (Math.random() * 20 + 1);
 			break;
 		case 100:
-			total = (int)(Math.random()*100+1);
+			total = (int) (Math.random() * 100 + 1);
 			break;
 		default:
-			total = (int)(Math.random()*20+1);
+			total = (int) (Math.random() * 20 + 1);
 			break;
 		}
 		System.out.println(total);
 		return total;
 	}
+
+
+	public void combatDamage(int damage) {
+		this.currentHp -= damage;
+	}
+	
+	public void healHp(int heal) {
+		this.currentHp += heal;
+	}
+
+			
+	
 }
+
+

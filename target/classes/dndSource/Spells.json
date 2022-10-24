@@ -1,0 +1,32 @@
+[
+	{
+		"spellName": "Fireball",
+		"spellDesc": "bigfire",
+		"spellDamage": 8,
+		"spellCost": 2
+	},
+	{
+		"spellName": "iceBall",
+		"spellDesc": "ice",
+		"spellDamage": 8,
+		"spellCost": 2
+	},
+	{
+		"spellName": "WindBall",
+		"spellDesc": "wind",
+		"spellDamage": 8,
+		"spellCost": 2
+	},
+	{
+		"spellName": "earthBall",
+		"spellDesc": "earth",
+		"spellDamage": 8,
+		"spellCost": 2
+	},
+	{
+		"spellName": "TerrorBall",
+		"spellDesc": "Terror",
+		"spellDamage": 8,
+		"spellCost": 2
+	}
+]
