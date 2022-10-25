@@ -20,7 +20,6 @@ public class Spell {
 	private int spellDamage;
 	private String classSpell;
 
-
 	private static ArrayList<Spell> spellList = new ArrayList<Spell>();
 
 	public Spell(String spellName) {

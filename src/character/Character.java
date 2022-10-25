@@ -17,13 +17,14 @@ public class Character {
 	private int currentHp;
 	private int xp;
 	private int initiative;
+	private int armourClass;
 	private int[] spellSlots;
 	private int[] savingThrows;
 	private int[] passive;
 	private ArrayList<Item> inventory;
 	private ArrayList<String> features;
 	private String chosenClass;
-	private ArrayList<String> skills;
+	private ArrayList<Skill> skills;
 	private ArrayList<String> languages;
 	private ArrayList<String> proficiencies;
 	private ArrayList<Spell> spells = new ArrayList<Spell>();
@@ -369,7 +370,6 @@ public class Character {
 			break;
 		default:
 			this.proficiency = 2;
-
 		}
 
 	}
@@ -422,11 +422,11 @@ public class Character {
 		this.chosenClass = archeType;
 	}
 
-	public ArrayList<String> getSkills() {
+	public ArrayList<Skill> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(ArrayList<String> skills) {
+	public void setSkills(ArrayList<Skill> skills) {
 		this.skills = skills;
 	}
 
@@ -568,7 +568,7 @@ public class Character {
 
 	private void createSorcerer(Character character) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void createWarlock(Character character) {
@@ -753,7 +753,6 @@ public class Character {
 			total = (int) (Math.random() * 20 + 1);
 			break;
 		}
-		System.out.println(total);
 		return total;
 	}
 
@@ -763,6 +762,14 @@ public class Character {
 
 	public void healHp(int heal) {
 		this.currentHp += heal;
+	}
+
+	public int getArmourClass() {
+		return armourClass;
+	}
+
+	public void setArmourClass(int armourClass) {
+		this.armourClass = armourClass;
 	}
 
 }

@@ -1,0 +1,110 @@
+[
+	{
+		"proficiency": 0,
+		"modifier": "DEX",
+		"name": "Acrobatics",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "WIS",
+		"name": "Animal Handling",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "INT",
+		"name": "Arcana",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "STR",
+		"name": "Athletics",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "CHA",
+		"name": "Deception",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "INT",
+		"name": "History",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "WIS",
+		"name": "Insight",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "CHA",
+		"name": "Intimidation",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "INT",
+		"name": "Investigation",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "WIS",
+		"name": "Medicine",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "CHA",
+		"name": "Performance",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "INT",
+		"name": "Nature",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "WIS",
+		"name": "Perception",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "CHA",
+		"name": "Persuasion",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "INT",
+		"name": "Religion",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "DEX",
+		"name": "Sleight of Hand",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "DEX",
+		"name": "Stealth",
+		"bonus": 0
+	},
+	{
+		"proficiency": 0,
+		"modifier": "WIS",
+		"name": "Survival",
+		"bonus": 0
+	}
+]

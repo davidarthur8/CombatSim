@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import character.Character;
+import character.Skill;
 import character.Spell;
 public class CombatSim {
 
@@ -25,10 +26,6 @@ public class CombatSim {
 		Character rogue = new Character("Vax", "Rogue");
 
 		ArrayList<Character> playerCharacter = Character.getPlayerCharacters();
-
-		for (int i = 0; i < playerCharacter.size(); i++) {
-			System.out.println(playerCharacter.get(i));
-		}
 		
 		//Generate Spell list from json file
 		Spell spell = new Spell();
@@ -37,9 +34,11 @@ public class CombatSim {
 			System.out.println(spell1.getSpellName());
 		}
 		
-		wizard.addSpells(Spell.getSpellList(1));
-		
-		System.out.println(wizard.getSpellList(0).getSpellName());
+		Skill skill = new Skill();
+		skill.createSkillList();
+		for(Skill skill1 : Skill.getSkillList()) {
+			System.out.println(skill1.getName());
+		}
 
 	}
 
