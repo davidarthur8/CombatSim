@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import character.Character;
+import character.Item;
 import character.Skill;
 import character.Spell;
 public class CombatSim {
@@ -34,10 +35,18 @@ public class CombatSim {
 			System.out.println(spell1.getSpellName());
 		}
 		
+		//Generate Skill list from json file
 		Skill skill = new Skill();
 		skill.createSkillList();
 		for(Skill skill1 : Skill.getSkillList()) {
 			System.out.println(skill1.getName());
+		}
+		
+		//Generate item list from json file
+		Item item = new Item();
+		item.createItemList();
+		for(Item item1 : Item.getItemList()) {
+			System.out.println(item1.getItemName());
 		}
 
 	}
