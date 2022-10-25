@@ -3,30 +3,35 @@
 		"spellName": "Fireball",
 		"spellDesc": "bigfire",
 		"spellDamage": 8,
-		"spellCost": 2
+		"spellCost": 2,
+		"classSpell": "Wizard"
 	},
 	{
 		"spellName": "iceBall",
 		"spellDesc": "ice",
 		"spellDamage": 8,
-		"spellCost": 2
+		"spellCost": 2,
+		"classSpell": "Wizard"
 	},
 	{
 		"spellName": "WindBall",
 		"spellDesc": "wind",
 		"spellDamage": 8,
-		"spellCost": 2
+		"spellCost": 2,
+		"classSpell": "Wizard"
 	},
 	{
 		"spellName": "earthBall",
 		"spellDesc": "earth",
 		"spellDamage": 8,
-		"spellCost": 2
+		"spellCost": 2,
+		"classSpell": "Wizard"
 	},
 	{
 		"spellName": "TerrorBall",
-		"spellDesc": "Terror",
+		"spellDesc": "Terrorz",
 		"spellDamage": 8,
-		"spellCost": 2
+		"spellCost": 2,
+		"classSpell": "Wizard"
 	}
 ]

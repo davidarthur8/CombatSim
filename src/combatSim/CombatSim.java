@@ -3,8 +3,8 @@ package combatSim;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
@@ -30,26 +30,16 @@ public class CombatSim {
 			System.out.println(playerCharacter.get(i));
 		}
 		
-		JSONParser parser = new JSONParser();
-		JSONArray jsonArray = (JSONArray)parser.parse(new FileReader("C:\\Users\\david\\eclipse-workspace\\CombatSim\\src\\dndSource\\Spells.json"));		
-		
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			for (int i = 0; i < jsonArray.size(); i++) {
-				String jsonStr = (String) jsonArray.get(i).toString();
-				Spell spell = objectMapper.readValue(jsonStr, Spell.class);
-				wizard.addSpells(spell);
-			}
-			for (Spell spell: wizard.getSpells()) {
-				System.out.println(spell.getSpellName());
-				System.out.println(spell.getSpellDamage());
-				System.out.println(spell.getSpellDamage()*(wizard.rollDice(20)));
-			}
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+		//Generate Spell list from json file
+		Spell spell = new Spell();
+		spell.createSpellList();
+		for(Spell spell1 : Spell.getSpellList()) {
+			System.out.println(spell1.getSpellName());
 		}
+		
+		wizard.addSpells(Spell.getSpellList(1));
+		
+		System.out.println(wizard.getSpellList(0).getSpellName());
 
 	}
 

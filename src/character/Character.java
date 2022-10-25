@@ -17,6 +17,7 @@ public class Character {
 	private int currentHp;
 	private int xp;
 	private int initiative;
+	private int[] spellSlots;
 	private int[] savingThrows;
 	private int[] passive;
 	private ArrayList<Item> inventory;
@@ -49,6 +50,252 @@ public class Character {
 
 	public void setStrength(int strength) {
 		this.strength = strength;
+	}
+
+	public int[] getSpellSlots() {
+		return spellSlots;
+	}
+
+	public void setSpellSlots(String chosenClass, int level) {
+		switch (chosenClass) {
+		case "Wizard", "Bard", "Druid", "Sorcerer", "Cleric":
+			setPrimarySpellcaster(level);
+			break;
+		case "Paladin", "Ranger":
+			setSecondarySpellcaster(level);
+			break;
+		case "Warlock":
+			setWarlockSpell(level);
+		default:
+			break;
+		}
+	}
+
+	private void setSecondarySpellcaster(int level) {
+		this.spellSlots = new int[5];
+		switch (level) {
+		case 1:
+			spellSlots[0] = 0;
+			break;
+		case 2:
+			spellSlots[0] = 2;
+			break;
+		case 3, 4:
+			spellSlots[0] = 3;
+			break;
+		case 5, 6:
+			spellSlots[0] = 4;
+			spellSlots[1] = 2;
+			break;
+		case 7, 8:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			break;
+		case 9, 10:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 2;
+			break;
+		case 11, 12:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			break;
+		case 13, 14:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 1;
+			break;
+		case 15, 16:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 2;
+			break;
+		case 17, 18:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 1;
+			break;
+		case 19, 20:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 2;
+			break;
+		default:
+			break;
+		}
+
+	}
+
+	private void setWarlockSpell(int level) {
+		this.spellSlots = new int[5];
+		switch (level) {
+		case 1:
+			spellSlots[0] = 1;
+			break;
+		case 2:
+			spellSlots[0] = 2;
+			break;
+		case 3, 4:
+			spellSlots[1] = 2;
+			break;
+		case 5, 6:
+			spellSlots[2] = 2;
+			break;
+		case 7, 8:
+			spellSlots[3] = 2;
+			break;
+		case 9, 10:
+			spellSlots[4] = 2;
+			break;
+		case 11, 12, 13, 14, 15, 16:
+			spellSlots[4] = 3;
+			break;
+		case 17, 18, 19, 20:
+			spellSlots[4] = 4;
+			break;
+		default:
+			break;
+		}
+	}
+
+	private void setPrimarySpellcaster(int level) {
+		this.spellSlots = new int[9];
+		switch (level) {
+		case 1:
+			spellSlots[0] = 2;
+			break;
+		case 2:
+			spellSlots[0] = 3;
+			break;
+		case 3:
+			spellSlots[0] = 4;
+			spellSlots[1] = 2;
+			break;
+		case 4:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			break;
+		case 5:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 2;
+			break;
+		case 6:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			break;
+		case 7:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 1;
+			break;
+		case 8:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 2;
+			break;
+		case 9:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 1;
+			break;
+		case 10:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 2;
+			break;
+		case 11, 12:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 2;
+			spellSlots[5] = 1;
+			break;
+		case 13, 14:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 2;
+			spellSlots[5] = 1;
+			spellSlots[6] = 1;
+			break;
+		case 15, 16:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 2;
+			spellSlots[5] = 1;
+			spellSlots[6] = 1;
+			spellSlots[7] = 1;
+			break;
+		case 17:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 2;
+			spellSlots[5] = 1;
+			spellSlots[6] = 1;
+			spellSlots[7] = 1;
+			spellSlots[8] = 1;
+			break;
+		case 18:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 3;
+			spellSlots[5] = 1;
+			spellSlots[6] = 1;
+			spellSlots[7] = 1;
+			spellSlots[8] = 1;
+			break;
+		case 19:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 3;
+			spellSlots[5] = 2;
+			spellSlots[6] = 1;
+			spellSlots[7] = 1;
+			spellSlots[8] = 1;
+			break;
+		case 20:
+			spellSlots[0] = 4;
+			spellSlots[1] = 3;
+			spellSlots[2] = 3;
+			spellSlots[3] = 3;
+			spellSlots[4] = 3;
+			spellSlots[5] = 2;
+			spellSlots[6] = 2;
+			spellSlots[7] = 1;
+			spellSlots[8] = 1;
+			break;
+		default:
+			break;
+		}
+	}
+
+	public static void setPlayerCharacters(ArrayList<Character> playerCharacters) {
+		Character.playerCharacters = playerCharacters;
 	}
 
 	public int getDexterity() {
@@ -206,8 +453,13 @@ public class Character {
 	public void setSpells(ArrayList<Spell> spells) {
 		this.spells = spells;
 	}
+
 	public void addSpells(Spell spell) {
 		this.spells.add(spell);
+	}
+
+	public Spell getSpellList(int position) {
+		return spells.get(position);
 	}
 
 	public ArrayList<String> getAttacks() {
@@ -304,11 +556,19 @@ public class Character {
 		case "Warlock":
 			createWarlock(this);
 			break;
+		case "Sorcerer":
+			createSorcerer(this);
+			break;
 		default:
 			System.out.println("Please provide name and chosen class");
 		}
 
 		playerCharacters.add(this);
+	}
+
+	private void createSorcerer(Character character) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void createWarlock(Character character) {
@@ -318,7 +578,7 @@ public class Character {
 		this.dexterity = 2;
 		this.constitution = 0;
 		this.wisdom = 0;
-
+		setSpellSlots(this.chosenClass, this.level);
 	}
 
 	private void createRogue(Character character) {
@@ -497,17 +757,12 @@ public class Character {
 		return total;
 	}
 
-
 	public void combatDamage(int damage) {
 		this.currentHp -= damage;
 	}
-	
+
 	public void healHp(int heal) {
 		this.currentHp += heal;
 	}
 
-			
-	
 }
-
-
