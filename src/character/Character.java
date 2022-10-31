@@ -1,8 +1,10 @@
 package character;
 
+import command.Target;
+
 import java.util.ArrayList;
 
-public class Character {
+public class Character implements Target {
 
 	private String name;
 	private int strength;
@@ -75,61 +77,55 @@ public class Character {
 	private void setSecondarySpellcaster(int level) {
 		this.spellSlots = new int[5];
 		switch (level) {
-		case 1:
-			spellSlots[0] = 0;
-			break;
-		case 2:
-			spellSlots[0] = 2;
-			break;
-		case 3, 4:
-			spellSlots[0] = 3;
-			break;
-		case 5, 6:
-			spellSlots[0] = 4;
-			spellSlots[1] = 2;
-			break;
-		case 7, 8:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			break;
-		case 9, 10:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 2;
-			break;
-		case 11, 12:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			break;
-		case 13, 14:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 1;
-			break;
-		case 15, 16:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 2;
-			break;
-		case 17, 18:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 1;
-			break;
-		case 19, 20:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 2;
-			break;
-		default:
-			break;
+			case 1 -> spellSlots[0] = 0;
+			case 2 -> spellSlots[0] = 2;
+			case 3, 4 -> spellSlots[0] = 3;
+			case 5, 6 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 2;
+			}
+			case 7, 8 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 3;
+			}
+			case 9, 10 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 3;
+				spellSlots[2] = 2;
+			}
+			case 11, 12 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 3;
+				spellSlots[2] = 3;
+			}
+			case 13, 14 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 3;
+				spellSlots[2] = 3;
+				spellSlots[3] = 1;
+			}
+			case 15, 16 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 3;
+				spellSlots[2] = 3;
+				spellSlots[3] = 2;
+			}
+			case 17, 18 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 3;
+				spellSlots[2] = 3;
+				spellSlots[3] = 3;
+				spellSlots[4] = 1;
+			}
+			case 19, 20 -> {
+				spellSlots[0] = 4;
+				spellSlots[1] = 3;
+				spellSlots[2] = 3;
+				spellSlots[3] = 3;
+				spellSlots[4] = 2;
+			}
+			default -> {
+			}
 		}
 
 	}
@@ -682,7 +678,7 @@ public class Character {
 	}
 
 	public void checkXp(int xp) {
-		if (xp < 300) {
+		if (xp <= 299) {
 			this.level = 1;
 		} else if (xp > 299 && xp < 900) {
 			this.level = 2;
