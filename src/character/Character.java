@@ -680,7 +680,7 @@ public class Character implements Target {
 	public void checkXp(int xp) {
 		if (xp <= 299) {
 			this.level = 1;
-		} else if (xp > 300 && xp < 900) {
+		} else if (xp > 299 && xp < 900) {
 			this.level = 2;
 		} else if (xp > 899 && xp < 2700) {
 			this.level = 3;
