@@ -1,0 +1,44 @@
+[
+	{
+		"itemName": "Sword",
+		"itemDesc": "pointy",
+		"itemCost": 0,
+		"itemDamage": 0,
+		"itemEffect": 0
+	},
+	{
+		"itemName": "Hammer",
+		"itemDesc": "smashy smashy",
+		"itemCost": 0,
+		"itemDamage": 0,
+		"itemEffect": 0
+	},
+	{
+		"itemName": "Halbert",
+		"itemDesc": "Stabby Stabby",
+		"itemCost": 0,
+		"itemDamage": 0,
+		"itemEffect": 0
+	},
+	{
+		"itemName": "Falchoin",
+		"itemDesc": "Ahoy",
+		"itemCost": 0,
+		"itemDamage": 0,
+		"itemEffect": 0
+	},
+	{
+		"itemName": "Book of Souls",
+		"itemDesc": "Spooky",
+		"itemCost": 0,
+		"itemDamage": 0,
+		"itemEffect": 0
+	},
+	{
+		"itemName": "Potion",
+		"itemDesc": "mmm that's better'",
+		"itemCost": 0,
+		"itemDamage": 0,
+		"itemEffect": 0
+	}
+]
