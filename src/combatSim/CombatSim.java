@@ -22,12 +22,12 @@ public class CombatSim {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
-		Character wizard = new Character("Gandalf", "Wizard");
-		Character warlock = new Character("Atreus", "Warlock");
-		Character rogue = new Character("Vax", "Rogue");
-
-		ArrayList<Character> playerCharacter = Character.getPlayerCharacters();
+		Character wizard = new Character.Builder("Gandalf", "Wizard").build();
+		Character warlock = new Character.Builder("Atreus", "Warlock").build();
+		Character rogue = new Character.Builder("Vax", "Rogue").build();
 		
+		ArrayList<Character> playerCharacter = Character.getPlayerCharacters();
+
 		//Generate Spell list from json file
 		Spell spell = new Spell();
 		spell.createSpellList();
