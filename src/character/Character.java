@@ -428,10 +428,4 @@ public class Character implements Target {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	
-	public void setSpellSlots() {
-		this.spellSlots = null;
-		this.spellSlots = new SpellSlots(chosenClass, level);
-	}
-
 }

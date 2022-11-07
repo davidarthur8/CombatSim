@@ -29,7 +29,7 @@ public class CombatSim {
 		ArrayList<Character> playerCharacter = Character.getPlayerCharacters();
 		System.out.println(wizard.getSpellSlots().getSecondLevel());
 		wizard.setLevel(10);
-		wizard.setSpellSlots();
+		wizard.getSpellSlots().setSpellSlots(wizard.getChosenClass(), wizard.getLevel());
 		System.out.println(wizard.getSpellSlots().getSecondLevel());
 		
 		//Generate Spell list from json file

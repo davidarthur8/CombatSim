@@ -15,7 +15,7 @@ public class SpellSlots {
 		setSpellSlots(chosenClass, level);
 	}
 	
-	private void setSpellSlots(String chosenClass, int level) {
+	public void setSpellSlots(String chosenClass, int level) {
 		switch (chosenClass) {
 		case "Wizard", "Bard", "Druid", "Sorcerer", "Cleric":
 			setPrimarySpellcaster(level);
