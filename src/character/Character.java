@@ -54,7 +54,7 @@ public class Character implements Target {
 		private int initiative = 0;
 		private int armourClass = 0;
 		private SpellSlots spellSlots;
-		private int[] savingThrows;
+		private SavingThrows savingThrows;
 		private int[] passive;
 		private ArrayList<Item> inventory = new ArrayList<Item>();
 		private ArrayList<String> features = new ArrayList<String>();
@@ -69,7 +69,8 @@ public class Character implements Target {
 		public Builder(String name, String chosenClass) {
 			this.name = name;
 			this.chosenClass = chosenClass;
-			this.spellSlots = new SpellSlots.Builder(level, chosenClass).Build();
+			this.spellSlots = new SpellSlots(chosenClass, level);
+			//this.savingThrows = new SavingThrows.Builder(strength, dexterity, wisdom, intelligence, charisma, constitution).Build();
 		}
 		
 		public Builder strength(int val) {
@@ -422,6 +423,15 @@ public class Character implements Target {
 
 	public void setArmourClass(int armourClass) {
 		this.armourClass = armourClass;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public void setSpellSlots() {
+		this.spellSlots = null;
+		this.spellSlots = new SpellSlots(chosenClass, level);
 	}
 
 }

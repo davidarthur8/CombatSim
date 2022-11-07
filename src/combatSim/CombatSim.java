@@ -27,6 +27,10 @@ public class CombatSim {
 		Character rogue = new Character.Builder("Vax", "Rogue").build();
 		
 		ArrayList<Character> playerCharacter = Character.getPlayerCharacters();
+		System.out.println(wizard.getSpellSlots().getSecondLevel());
+		wizard.setLevel(10);
+		wizard.setSpellSlots();
+		System.out.println(wizard.getSpellSlots().getSecondLevel());
 		
 		//Generate Spell list from json file
 		Spell spell = new Spell();
