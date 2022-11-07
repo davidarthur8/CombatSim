@@ -27,7 +27,7 @@ public class CombatSim {
 		Character rogue = new Character.Builder("Vax", "Rogue").build();
 		
 		ArrayList<Character> playerCharacter = Character.getPlayerCharacters();
-
+		
 		//Generate Spell list from json file
 		Spell spell = new Spell();
 		spell.createSpellList();

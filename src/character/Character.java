@@ -19,16 +19,16 @@ public class Character implements Target {
 	private int xp;
 	private int initiative;
 	private int armourClass;
-	private int[] spellSlots;
-	private int[] savingThrows;
-	private int[] passive;
-	private ArrayList<Item> inventory;
-	private ArrayList<String> features;
+	private SpellSlots spellSlots;
+	private SavingThrows savingThrows;
+	private Passive passive;
+	private Inventory inventory;
+	private Features features;
 	private String chosenClass;
 	private ArrayList<Skill> skills;
 	private ArrayList<String> languages;
 	private ArrayList<String> proficiencies;
-	private ArrayList<Spell> spells = new ArrayList<Spell>();
+	private ArrayList<Spell> spells;
 	private ArrayList<String> attacks;
 	private ArrayList<String> defence;
 	private ArrayList<Condition> conditions;
@@ -46,14 +46,14 @@ public class Character implements Target {
 		private int intelligence = 0;
 		private int charisma = 0;
 		private int constitution = 0;
-		private int level = 0;
+		private int level = 1;
 		private int proficiency = 0;
 		private int maxHp = 0;
 		private int currentHp = 0;
 		private int xp = 0;
 		private int initiative = 0;
 		private int armourClass = 0;
-		private int[] spellSlots;
+		private SpellSlots spellSlots;
 		private int[] savingThrows;
 		private int[] passive;
 		private ArrayList<Item> inventory = new ArrayList<Item>();
@@ -69,8 +69,9 @@ public class Character implements Target {
 		public Builder(String name, String chosenClass) {
 			this.name = name;
 			this.chosenClass = chosenClass;
+			this.spellSlots = new SpellSlots.Builder(level, chosenClass).Build();
 		}
-
+		
 		public Builder strength(int val) {
 			strength = val;
 			return this;
@@ -158,6 +159,7 @@ public class Character implements Target {
 		charisma = builder.charisma;
 		name = builder.name;
 		chosenClass = builder.chosenClass;
+		spellSlots = builder.spellSlots;
 		playerCharacters.add(this);
 	}
 
@@ -173,240 +175,8 @@ public class Character implements Target {
 		return strength;
 	}
 
-	public int[] getSpellSlots() {
+	public SpellSlots getSpellSlots() {
 		return spellSlots;
-	}
-
-	public void setSpellSlots(String chosenClass, int level) {
-		switch (chosenClass) {
-		case "Wizard", "Bard", "Druid", "Sorcerer", "Cleric":
-			setPrimarySpellcaster(level);
-			break;
-		case "Paladin", "Ranger":
-			setSecondarySpellcaster(level);
-			break;
-		case "Warlock":
-			setWarlockSpell(level);
-		default:
-			break;
-		}
-	}
-
-	private void setSecondarySpellcaster(int level) {
-		this.spellSlots = new int[5];
-		switch (level) {
-		case 1 -> spellSlots[0] = 0;
-		case 2 -> spellSlots[0] = 2;
-		case 3, 4 -> spellSlots[0] = 3;
-		case 5, 6 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 2;
-		}
-		case 7, 8 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-		}
-		case 9, 10 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 2;
-		}
-		case 11, 12 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-		}
-		case 13, 14 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 1;
-		}
-		case 15, 16 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 2;
-		}
-		case 17, 18 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 1;
-		}
-		case 19, 20 -> {
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 2;
-		}
-		default -> {
-		}
-		}
-
-	}
-
-	private void setWarlockSpell(int level) {
-		this.spellSlots = new int[5];
-		switch (level) {
-		case 1:
-			spellSlots[0] = 1;
-			break;
-		case 2:
-			spellSlots[0] = 2;
-			break;
-		case 3, 4:
-			spellSlots[1] = 2;
-			break;
-		case 5, 6:
-			spellSlots[2] = 2;
-			break;
-		case 7, 8:
-			spellSlots[3] = 2;
-			break;
-		case 9, 10:
-			spellSlots[4] = 2;
-			break;
-		case 11, 12, 13, 14, 15, 16:
-			spellSlots[4] = 3;
-			break;
-		case 17, 18, 19, 20:
-			spellSlots[4] = 4;
-			break;
-		default:
-			break;
-		}
-	}
-
-	private void setPrimarySpellcaster(int level) {
-		this.spellSlots = new int[9];
-		switch (level) {
-		case 1:
-			spellSlots[0] = 2;
-			break;
-		case 2:
-			spellSlots[0] = 3;
-			break;
-		case 3:
-			spellSlots[0] = 4;
-			spellSlots[1] = 2;
-			break;
-		case 4:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			break;
-		case 5:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 2;
-			break;
-		case 6:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			break;
-		case 7:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 1;
-			break;
-		case 8:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 2;
-			break;
-		case 9:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 1;
-			break;
-		case 10:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 2;
-			break;
-		case 11, 12:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 2;
-			spellSlots[5] = 1;
-			break;
-		case 13, 14:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 2;
-			spellSlots[5] = 1;
-			spellSlots[6] = 1;
-			break;
-		case 15, 16:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 2;
-			spellSlots[5] = 1;
-			spellSlots[6] = 1;
-			spellSlots[7] = 1;
-			break;
-		case 17:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 2;
-			spellSlots[5] = 1;
-			spellSlots[6] = 1;
-			spellSlots[7] = 1;
-			spellSlots[8] = 1;
-			break;
-		case 18:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 3;
-			spellSlots[5] = 1;
-			spellSlots[6] = 1;
-			spellSlots[7] = 1;
-			spellSlots[8] = 1;
-			break;
-		case 19:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 3;
-			spellSlots[5] = 2;
-			spellSlots[6] = 1;
-			spellSlots[7] = 1;
-			spellSlots[8] = 1;
-			break;
-		case 20:
-			spellSlots[0] = 4;
-			spellSlots[1] = 3;
-			spellSlots[2] = 3;
-			spellSlots[3] = 3;
-			spellSlots[4] = 3;
-			spellSlots[5] = 2;
-			spellSlots[6] = 2;
-			spellSlots[7] = 1;
-			spellSlots[8] = 1;
-			break;
-		default:
-			break;
-		}
 	}
 
 	public static void setPlayerCharacters(ArrayList<Character> playerCharacters) {
